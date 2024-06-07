@@ -17,6 +17,8 @@
     <h1>Saludo</h1>
     <p id="current-saludo" class=""></p>
     <form method="post" action="Ej3.php">
+        <label for="usuario">Usuario: </label>
+        <input type="text" name="usuario" id="usuario">
         <label for="change">Desea cambiar el saludo?</label><br>
         <input type="radio" id="si" name="change" value="Si">
         <label for="si">Si</label><br>
@@ -35,13 +37,13 @@
 
         // Get the current saludo from the cookie
         let saludo = getCookie('saludo');
-        
+
         // Set the text and class based on the saludo value
         let saludoElement = document.getElementById('current-saludo');
-        if (saludo === "Buenos dias + Usuario(Azul)") {
+        if (saludo.includes("Buenos dias")) {
             saludoElement.textContent = saludo;
             saludoElement.className = 'blue-text';
-        } else if (saludo === "Hola + Usuario(Verde)") {
+        } else if (saludo.includes("Hola")) {
             saludoElement.textContent = saludo;
             saludoElement.className = 'green-text';
         } else {
